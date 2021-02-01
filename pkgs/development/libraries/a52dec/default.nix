@@ -9,6 +9,10 @@ stdenv.mkDerivation rec {
     sha256 = "oh1ySrOzkzMwGUNTaH34LEdbXfuZdRPu9MJd5shl7DM=";
   };
 
+  postPatch = ''
+    sed -i 's/AR = ar//g' libao/Makefile.in
+  '';
+
   configureFlags = [
     "--enable-shared"
   ];
